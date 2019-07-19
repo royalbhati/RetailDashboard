@@ -27,14 +27,7 @@ export default class index extends Component {
     const data = [...this.props.data];
     return (
       <div>
-        {/* <Descriptions title='File Info' size="small" bordered>
-          <Descriptions.Item label='File Name'>
-            {this.props.data[0].name}
-          </Descriptions.Item>
-          <Descriptions.Item label='Phone'>
-            +91{this.props.data[0].name}
-          </Descriptions.Item>
-        </Descriptions> */}
+        
         <Table columns={columns} dataSource={data}  pagination={false} />
       </div>
     );

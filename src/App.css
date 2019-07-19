@@ -38,7 +38,6 @@
   border: 1px solid rgb(189, 185, 185);
   width: 300px;
   height: 300px;
-  overflow: scroll;
 
   /* height: 80%; */
 }
@@ -131,34 +130,34 @@
   margin-left: 1rem;
 }
 
-.is-primary{
+.is-primary {
   background-color: #00d1b2;
-color: #fff;
- border-color: #dbdbdb;
- border-width: 1px;
- cursor: pointer;
- justify-content: center;
- padding-bottom: calc(0.375em - 1px);
- padding-left: 0.75em;
- padding-right: 0.75em;
- padding-top: calc(0.375em - 1px);
- text-align: center;
- white-space: nowrap;
+  color: #fff;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(0.375em - 1px);
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: calc(0.375em - 1px);
+  text-align: center;
+  white-space: nowrap;
 }
 
-.is-danger{
-      background-color: #ff3860;
+.is-danger {
+  background-color: #ff3860;
 
-    color: #fff;
-    border-color: #dbdbdb;
-    border-width: 1px;
-    cursor: pointer;
-    justify-content: center;
-    padding-bottom: calc(0.375em - 1px);
-    padding-left: 0.75em;
-    padding-right: 0.75em;
-    padding-top: calc(0.375em - 1px);
-    text-align: center;
-    white-space: nowrap;
-  
+  color: #fff;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(0.375em - 1px);
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: calc(0.375em - 1px);
+  text-align: center;
+  white-space: nowrap;
+
 }
