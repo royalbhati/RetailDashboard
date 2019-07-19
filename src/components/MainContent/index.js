@@ -23,7 +23,7 @@ export default class index extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return (
-      this.props.id != nextProps.id || this.state.current != nextState.current
+      (this.props.id !== nextProps.id) || (this.state.current !== nextState.current)
     );
   }
 
@@ -38,7 +38,7 @@ export default class index extends Component {
     if (this.state.current === "ds") {
       return (<Detail data={this.global.detail} />);
     } else if (this.state.current === "fs") {
-      return <Files />;
+      return <Files data={this.global.detail} />;
     } else {
       return <Sampling />;
     }

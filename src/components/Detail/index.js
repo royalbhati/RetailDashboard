@@ -33,7 +33,10 @@ export default class Details extends Component {
                 Design ID
               </Title>
 
-              <Input placeholder='Design ID' value={this.props.data[0].id} />
+              <Input
+                placeholder='Design ID'
+                value={this.props.data[0].id}
+              />
             </div>
             <div className='inputBox'>
               <Title level={4} className='inputBoxLabel'>
@@ -44,7 +47,8 @@ export default class Details extends Component {
                 showSearch
                 style={{ width: 200 }}
                 placeholder='Women'
-                optionFilterProp='children'>
+                optionFilterProp='children'
+               value={this.props.data[0].category1}>
                 <Option value='women'>Women</Option>
                 <Option value='men'>Men</Option>
                 <Option value='kids'>Kids</Option>
@@ -53,10 +57,11 @@ export default class Details extends Component {
                 showSearch
                 style={{ width: 200, marginLeft: "0.1rem" }}
                 placeholder='Western'
-                optionFilterProp='children'>
-                <Option value='west'>Western</Option>
-                <Option value='trad'>Traditional</Option>
-                <Option value='sports'>Sports</Option>
+                optionFilterProp='children'
+                value={this.props.data[0].category2}>
+                <Option value='Western'>Western</Option>
+                <Option value='Traditional'>Traditional</Option>
+                <Option value='Cultural'>Sports</Option>
               </Select>
             </div>
           </Col>

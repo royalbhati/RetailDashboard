@@ -130,3 +130,35 @@
   top: 650px;
   margin-left: 1rem;
 }
+
+.is-primary{
+  background-color: #00d1b2;
+color: #fff;
+ border-color: #dbdbdb;
+ border-width: 1px;
+ cursor: pointer;
+ justify-content: center;
+ padding-bottom: calc(0.375em - 1px);
+ padding-left: 0.75em;
+ padding-right: 0.75em;
+ padding-top: calc(0.375em - 1px);
+ text-align: center;
+ white-space: nowrap;
+}
+
+.is-danger{
+      background-color: #ff3860;
+
+    color: #fff;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.375em - 1px);
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    padding-top: calc(0.375em - 1px);
+    text-align: center;
+    white-space: nowrap;
+  
+}

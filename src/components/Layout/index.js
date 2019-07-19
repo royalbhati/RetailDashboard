@@ -10,14 +10,17 @@ import {
   Input,
   Tag,
   Avatar,
-  Badge
+  Select,
+  Badge,
+  Button
 } from "antd";
-import { Popover, Button } from "antd";
 import List from "../../components/List";
 import Detail from "../Detail/";
 import UserCount from "../UserCount/";
 import Header from "../Header/";
 import MainContent from "../MainContent";
+import Modal from "react-modal";
+
 import {
   CollectionSvg,
   SamplingSvg,
@@ -27,7 +30,18 @@ import {
 const { Content, Footer, Sider } = Layout;
 const { Title } = Typography;
 const { Text } = Typography;
+const { Option } = Select;
 
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
 setGlobal({
   mainData: 1,
   x: 0,
@@ -88,8 +102,16 @@ export default class SiderDemo extends React.Component {
     fullData: data,
     filteredData: data,
     clicked: false,
-    current: "ds"
+    current: "ds",
+    modalIsOpen: false,
+    designID: "",
+    designName: "",
+    category1: "",
+    category2: "",
+    someData: ""
   };
+  
+  
 
   onCollapse = collapsed => {
     console.log(collapsed);
@@ -135,10 +157,64 @@ export default class SiderDemo extends React.Component {
     });
   };
 
+  onAdd = () => {
+    console.log("ADD NEW DESIGN");
+  };
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  };
+  designSubmit = () => {
+    //  this.setState({
+    //    fullData:{...data,state.newDesign}}
+  };
+  onChangeCategory1 = value => {
+    console.log("dds");
+    console.log(value);
+
+    this.setState({
+      category1: value
+    });
+  };
+  onChangeCategory2 = value => {
+    console.log("dds");
+    console.log(value);
+
+    this.setState({
+      category2: value
+    });
+  };
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  onSubmit = e => {
+    e.preventDefault()
+    const newData = {
+      id: this.state.designID,
+      name: this.state.designName,
+      category1: this.state.category1,
+      category2: this.state.category2,
+      status: "Sampling",
+      publisher: "John Dohia",
+      date: "May 25 2009",
+      url:"https://img.shein.com/images/shein.com/201705/29/14955400943370387458_thumbnail_405x552.jpg"
+    };
+
+    // data = [...data, newData];
+    this.setState(prevState => ({
+      fullData: [...prevState.fullData, newData],
+      someData: newData
+    }));
+  };
   fetchCollection = data => {
     return <List data={data} />;
   };
   render() {
+    console.log("stateeee", this.state);
     return (
       <>
         <Header />
@@ -160,7 +236,7 @@ export default class SiderDemo extends React.Component {
                   <Icon className='icons' component={ProductionSvg} />
                   <span>Production</span>
                 </Menu.Item>
-                <Menu.Item key='4' >
+                <Menu.Item key='4'>
                   <Icon className='icons' component={MessageSvg} />{" "}
                   <Badge count={25} />
                   <span
@@ -196,10 +272,113 @@ export default class SiderDemo extends React.Component {
               : this.fetchCollection(this.state.fullData)}
 
             <div style={{ cursor: "pointer" }} className='designAdd'>
-              <Icon style={{ marginRight: "1rem" }} type='plus' /> Add new
-              Design
+              <span onClick={this.openModal}>
+                <Icon
+                  style={{
+                    marginRight: "1rem"
+                  }}
+                  type='plus'
+                />{" "}
+                Add new Design
+              </span>
             </div>
           </Sider>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+            contentLabel='Example Modal'>
+            <form onSubmit={this.onSubmit}>
+              <Row>
+                <Col span={18} pull={0}>
+                  <div className='inputBox'>
+                    <Title level={4} className='inputBoxLabel'>
+                      Design Name
+                    </Title>
+                    <Input
+                      placeholder='Design name'
+                      name='designName'
+                      onChange={this.onChange}
+                      value={this.state.designName}
+                    />
+                  </div>
+                  <div className='inputBox'>
+                    <Title level={4} className='inputBoxLabel'>
+                      Design ID
+                    </Title>
+
+                    <Input
+                      placeholder='Design ID'
+                      name='designID'
+                      onChange={this.onChange}
+                      value={this.state.designID}
+                    />
+                  </div>
+                  <Row>
+                    <div className='inputBox'>
+                      <Title level={4} className='inputBoxLabel'>
+                        Design Category
+                      </Title>
+                      <Col span={6}>
+                        <Select
+                          showSearch
+                          style={{ width: 100 }}
+                          placeholder='Women'
+                          name='category1'
+                          onChange={this.onChangeCategory1}
+                          value={this.state.category1}
+                          optionFilterProp='children'>
+                          <Option value='women'>Women</Option>
+                          <Option value='men'>Men</Option>
+                          <Option value='kids'>Kids</Option>
+                        </Select>
+                      </Col>
+                      <Col span={6} push={2}>
+                        {/* <Title
+                                       level={4}
+                                       className='inputBoxLabel'>
+                                       Design Category
+                                     </Title> */}
+
+                        <Select
+                          showSearch
+                          style={{
+                            width: 200,
+                            marginLeft: "2rem"
+                          }}
+                          placeholder='Western'
+                          name='category2'
+                          onChange={this.onChangeCategory2}
+                          value={this.state.category2}
+                          optionFilterProp='children'>
+                          <Option value='western'>Western</Option>
+                          <Option value='Traditional'>Traditional</Option>
+                          <Option value='cultural'>Cultural</Option>
+                        </Select>
+                      </Col>
+                    </div>
+                  </Row>
+                </Col>
+              </Row>
+              <input
+                type='submit'
+                class='button is-primary'
+                style={{
+                  marginLeft: "1rem",
+                  marginTop: "2rem"
+                }}
+              />
+              <button 
+               class='button is-danger'
+                onClick={this.closeModal}
+                style={{
+                  marginLeft: "1rem",
+                  marginTop: "2rem"
+                }}
+              >Close</button>
+            </form>
+          </Modal>
           {/* </div> */}
 
           <Layout>
