@@ -1,9 +1,8 @@
-## Retail Dashboard 
+## Retail Dashboard
 
 ## Screenshots
 
-![img-1](img/img.png)
-
+![img-1](img/dash.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
