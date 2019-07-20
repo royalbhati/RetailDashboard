@@ -1,72 +1,86 @@
-import React, { Component } from "react";
-import { Row, Col, Input, Typography, Select,Icon } from "antd";
+import React, { Component } from "reactn";
+import { Row, Col, Input, Typography, Select, Icon } from "antd";
 const { Text, Title } = Typography;
 const { Option } = Select;
 
 export default class Details extends Component {
   render() {
-    console.log("detail", this.props.data);
 
     return (
-      <div>
-        <Row>
-          <Col span={12} push={0}>
-            <div className='imgCover'>
-              <img src={this.props.data[0].url} />
+      <>
+        <div class='collection_content'>
+          <div class='collection_img'>
+            <div class='collection_img_text'>Cover Image</div>
+            <img
+              src={
+                this.global.data && this.global.data[this.global.key].url
+              }
+              alt=''
+              sizes=''
+              srcset=''
+            />
+            <div class='collection_img_delete'>
+              <span class='collection_img_delete_icon'>
+                <i class='far fa-trash-alt' />
+              </span>
             </div>
-            <div className='imgCoverDelete'>
-              <Icon type='delete' />
-            </div>
-          </Col>
-          <Col span={12} pull={1}>
-            <div className='inputBox'>
-              <Title level={4} className='inputBoxLabel'>
-                Design Name
-              </Title>
-              <Input
+          </div>
+          <div class='collection_img_details'>
+            <div class='design_name'>
+              <div class='input_label'>Design Name</div>
+              <input
+                class='content_input'
+                type='text'
                 placeholder='Design name'
-                value={this.props.data[0].name}
+                value={
+                  this.global.data && this.global.data[this.global.key].name
+                }
               />
             </div>
-            <div className='inputBox'>
-              <Title level={4} className='inputBoxLabel'>
-                Design ID
-              </Title>
 
-              <Input
-                placeholder='Design ID'
-                value={this.props.data[0].id}
+            <div class='design_id'>
+              <div class='input_label'>Design Id</div>
+              <input
+                class='content_input'
+                type='text'
+                placeholder='Design id'
+                value={
+                  this.global.data && this.global.data[this.global.key].id
+                }
               />
             </div>
-            <div className='inputBox'>
-              <Title level={4} className='inputBoxLabel'>
-                Design Category
-              </Title>
-
-              <Select
-                showSearch
-                style={{ width: 200 }}
-                placeholder='Women'
-                optionFilterProp='children'
-               value={this.props.data[0].category1}>
-                <Option value='women'>Women</Option>
-                <Option value='men'>Men</Option>
-                <Option value='kids'>Kids</Option>
-              </Select>
-              <Select
-                showSearch
-                style={{ width: 200, marginLeft: "0.1rem" }}
-                placeholder='Western'
-                optionFilterProp='children'
-                value={this.props.data[0].category2}>
-                <Option value='Western'>Western</Option>
-                <Option value='Traditional'>Traditional</Option>
-                <Option value='Cultural'>Sports</Option>
-              </Select>
+            <div class='design_category'>
+              <div class='input_label'>Design Category</div>
+              <div class='design_category_input_grid'>
+                <select
+                  class='design_category_input_box'
+                  type='text'
+                  // placeholder='Men'
+                  defaultValue={
+                    // "women"
+                    this.global.data &&
+                    this.global.data[this.global.key].category1
+                  }>
+                  <option value='men'>Men</option>
+                  <option value='women'>Women</option>
+                  <option value='kids'>Kids</option>
+                </select>
+                <select
+                  class='design_category_input_box'
+                  type='text'
+                  defaultValue={
+                    this.global.data &&
+                    this.global.data[this.global.key].category2
+                  }>
+                  <option value='trad'>Traditional</option>
+                  <option value='cult'>Cultural</option>
+                  <option value='west'>Western</option>
+                </select>
+              </div>
             </div>
-          </Col>
-        </Row>
-      </div>
+          </div>
+        </div>
+      </>
     );
   }
 }

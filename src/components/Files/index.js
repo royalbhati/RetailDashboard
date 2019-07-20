@@ -1,34 +1,32 @@
-import React, { Component } from "react";
-import { Descriptions } from "antd";
-import { Table, Divider, Tag } from "antd";
+import React, { Component } from "reactn";
 
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: text => <h1>{text}</h1>
-  },
-  {
-    title: "Uploaded By",
-    dataIndex: "publisher",
-    key: "publisher"
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-    key: "status"
-  }
-];
-const data = [];
+
+
 
 export default class index extends Component {
+
   render() {
-    const data = [...this.props.data];
+    const data =this.props.data;
+    console.log("data in files",this.props.data);
+    
     return (
       <div>
-        
-        <Table columns={columns} dataSource={data}  pagination={false} />
+        <table class='file_table'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Uploaded By</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{data.name}</td>
+              <td>{data.publisher}</td>
+              <td>{data.status}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }

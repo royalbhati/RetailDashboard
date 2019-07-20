@@ -6,30 +6,25 @@ const { Search } = Input;
 export default class index extends Component {
   render() {
     return (
-      <div>
-        <Header
-          className='headerr'
-          style={{
-            background: "#fff",
-            padding: 0
-          }}>
-          <div className='headerbox'>
-            <span>
-              <h1>Zara Retail Limited</h1>
-            </span>
-            <span>
-              <Search
-                placeholder='input search text'
-                onSearch={value => console.log(value)}
-                style={{ width: 400 }}
-              />
-            </span>
-            <span>
-              <Icon style={{"fontSize":"1.3rem"}} type='bell' />
-              <Badge count={5} />
-            </span>
-          </div>
-        </Header>
+      <div class='header grid-area'>
+        <div>
+          <img src='./assests/logo1.png' />
+        </div>
+        <div class='header_title'>Zara Retail Limited</div>
+        <div class='header_search'>
+          <i
+            style={{ color: "black" }}
+            class='fas fa-search header_search_icon'
+          />
+          <input
+            type='text'
+            style={{ border: "none" }}
+            placeholder='Search designs or Collections'
+          />
+        </div>
+        <div class='notification_bell'>
+          <i class='far fa-bell' /> <span class='top_badge'>3</span>
+        </div>
       </div>
     );
   }
