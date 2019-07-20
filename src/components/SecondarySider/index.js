@@ -2,7 +2,6 @@ import React, { Component } from "reactn";
 import Modal from "react-modal";
 import { Row, Col, Input, Select, Typography } from "antd";
 const { Title } = Typography;
-const { Text } = Typography;
 const { Option } = Select;
 const customStyles = {
   content: {

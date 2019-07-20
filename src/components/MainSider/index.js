@@ -112,14 +112,14 @@ export default class index extends Component {
           </div>
           <div class='left_side_icons'>
             {" "}
-            <img src='./assests/ic_nav_messages.svg' />
+            <img src='./assests/ic_nav_messages.svg' alt="" />
             <span class='badge'>23</span>
             <div>Inbox </div>
           </div>
         </div>
         <div class='side1_bottom'>
           <div class='left_side_icons'>
-            <img src='./assests/ic_nav_account.svg' />
+            <img src='./assests/ic_nav_account.svg' alt=""/>
             <div>Account</div>
           </div>
 
