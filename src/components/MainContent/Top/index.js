@@ -1,4 +1,4 @@
-import React, { Component,setGlobal } from "reactn";
+import React, { Component, setGlobal } from "reactn";
 import { Menu } from "antd";
 export default class contentTop extends Component {
   handleClick = e => {
@@ -8,8 +8,6 @@ export default class contentTop extends Component {
     });
   };
   render() {
-    console.log("ddddd", this.global.key);
-
     return (
       <div>
         <div class='content_top'>

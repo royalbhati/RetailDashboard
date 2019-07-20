@@ -1,7 +1,4 @@
 import React, { Component } from "reactn";
-import { Row, Col, Input, Typography, Select, Icon } from "antd";
-const { Text, Title } = Typography;
-const { Option } = Select;
 
 export default class Details extends Component {
   render() {

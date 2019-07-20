@@ -1,14 +1,9 @@
 import React, { Component } from "reactn";
 
-
-
-
 export default class index extends Component {
-
   render() {
-    const data =this.props.data;
-    console.log("data in files",this.props.data);
-    
+    const data = this.props.data;
+
     return (
       <div>
         <table class='file_table'>

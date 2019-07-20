@@ -86,14 +86,12 @@ export default class index extends Component {
     });
   };
   render() {
-    console.log("global", this.global.data);
-
     return (
       <div class='side2'>
         <div class='side_2_area_top'>
           <div class='side_list_static_item'>
-            <img src='https://image.flaticon.com/icons/svg/54/54321.svg' />{" "}
-            All Designs
+            <img src='https://image.flaticon.com/icons/svg/54/54321.svg' /> All
+            Designs
             <hr />
           </div>
           {this.global.data ? this.fetchdata() : null}

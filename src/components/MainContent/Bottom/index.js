@@ -14,11 +14,6 @@ export default class contentBottom extends Component {
     }
   };
   render() {
-    console.log(
-      "category",
-      this.global.data && this.global.data[this.global.key].category1
-    );
-
     return (
       <div>
         <div class='content_bottom'>{this.content()}</div>

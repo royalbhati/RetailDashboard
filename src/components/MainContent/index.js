@@ -1,13 +1,9 @@
 import React, { Component, useGlobal, setGlobal } from "reactn";
 import Detail from "../Detail";
-import UserCount from "../UserCount";
-import { Row, Col, Typography, Breadcrumb, Tag, Menu, Icon } from "antd";
 import Files from "../Files";
 import Sampling from "../Sampling";
 import ContentTop from './Top'
 import ContentBottom from './Bottom'
-const { Title } = Typography;
-const { Text } = Typography;
 
 export default class index extends Component {
   state = {
